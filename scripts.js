@@ -48,8 +48,6 @@ form.onsubmit = (event) => {
 
   // Chama a função que irá adicionar o item na lista
   expenseAdd(newExpense);
-
-  form.reset();
 };
 
 // Adiciona um novo item na lista
@@ -97,6 +95,10 @@ function expenseAdd(newExpense) {
 
     // Adiciona o item na lista
     expenseList.append(expenseItem);
+
+    // Limpa o formulário
+    // form.reset();
+    formClear();
 
     // Atualiza os totais
     updateTotals();
@@ -163,3 +165,13 @@ expenseList.addEventListener("click", function (event) {
   // Atualiza os totais
   updateTotals();
 });
+
+function formClear() {
+  // Limpa os inputs
+  expense.value = "";
+  category.value = "";
+  amount.value = "";
+
+  // Foca no input de nome da despesa automaticamente
+  expense.focus();
+}
